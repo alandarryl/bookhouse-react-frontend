@@ -18,9 +18,9 @@ const NavBar = () =>{
                 <div className="collapse navbar-collapse" >
                     {/* lien de navigation */}
                     <ul className="navbar-nav" >
-                        <li className="nav-item" > <Link className='nav-link' href="/book" >Nos livres</Link> </li>
-                        <li className="nav-item" > <Link className='nav-link' href="/book" >Favoris</Link> </li>
-                        <li className="nav-item" > <Link className='nav-link' href="/book" >Nous contacter</Link> </li>
+                        <li className="nav-item" > <Link className='nav-link' to="/book" >Nos livres</Link> </li>
+                        <li className="nav-item" > <Link className='nav-link' to="/book" >Favoris</Link> </li>
+                        <li className="nav-item" > <Link className='nav-link' to="/book" >Nous contacter</Link> </li>
                     </ul>
                     {/* barre de recherche */}
                     <form>

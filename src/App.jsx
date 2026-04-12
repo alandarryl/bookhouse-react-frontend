@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import BookDetail from './pages/BookDetail';
 import Favorites from './pages/Favorites';
 
+
 function App() {
 
   return (

@@ -22,7 +22,7 @@ function BestOffers() {
                 <div className='offers-grid'>
                     {/* Colonne de gauche : Livre principal */}
                     <div className='left-col'>
-                        <Link to="/details" className='main-offer-link'>
+                        <Link to="/detail" className='main-offer-link'>
                             <div className='main-img-container'>
                                 <img src={one_piece} alt="One Piece" />
                             </div>

@@ -1,0 +1,204 @@
+/* userAds.css */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+}
+
+/* SIDEBAR */
+.user-sidebar {
+    width: 280px;
+    background: #1a202c;
+    color: white;
+    padding: 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.avatar-wrapper img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #343a40;
+    margin-bottom: 1rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-nav a {
+    color: #a0aec0;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: #2d3748;
+    color: white;
+}
+
+.logout-link { color: #fc8181 !important; margin-top: auto; }
+
+/* MAIN CONTENT */
+.ads-main-content {
+    flex: 1;
+    padding: 3rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content-header h1 { font-size: 1.8rem; font-weight: 800; }
+.content-header h1 span { color: #718096; font-size: 1.2rem; }
+
+.btn-add-ad {
+    background: #1a202c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* SEARCH & FILTERS */
+.controls-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    position: relative;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    outline: none;
+}
+
+.filter-pills {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-pills button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #edf2f7;
+    color: #4a5568;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-pills button.active {
+    background: #1a202c;
+    color: white;
+}
+
+/* ADS GRID */
+.ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.ad-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s;
+}
+
+.ad-card:hover { transform: translateY(-5px); }
+
+.status-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.status-badge.disponible { background: #c6f6d5; color: #22543d; }
+.status-badge.vendu { background: #fed7d7; color: #822727; }
+.status-badge.en\ attente { background: #feebc8; color: #744210; }
+
+.ad-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.ad-details { padding: 1.5rem; }
+.ad-details h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #2d3748; }
+.ad-price { font-size: 1.3rem; font-weight: 800; color: #2d3748; }
+
+.ad-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    border-top: 1px solid #f7fafc;
+    padding-top: 1rem;
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.btn-icon.edit { background: #ebf8ff; color: #3182ce; }
+.btn-icon.delete { background: #fff5f5; color: #e53e3e; }
+.btn-view-stats { margin-left: auto; background: none; border: none; color: #a0aec0; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .user-sidebar { width: 80px; padding: 2rem 0.5rem; }
+    .sidebar-nav a span, .profile-section h4, .profile-section p { display: none; }
+    .sidebar-nav a { justify-content: center; }
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SimilarBooks from '../components/section/SimilarBook';
 import "./styles/detail.css";
 
+import { Link } from 'react-router-dom';
+
 // Images mockées pour l'exemple
 import harry from "../assets/harry-potter-tome-1-harry-potter-a-lecole-des-sorciers-337687.jpg"; 
 import userAvatar from "../assets/default-profile.png";
@@ -69,7 +71,9 @@ function BookDetail() {
                                     <p className="vendeur-date">Membre depuis {book.vendeur.membreDepuis}</p>
                                 </div>
                             </div>
-                            <button className="btn-contact">Contactez le vendeur</button>
+                            <Link to={"/messaging"} >
+                                <button className="btn-contact">Contactez le vendeur</button>
+                            </Link>
                         </div>
 
                         <button className="btn-report"><i className="bi bi-flag"></i> Signaler l'annonce</button>

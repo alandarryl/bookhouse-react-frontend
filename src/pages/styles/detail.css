@@ -1,0 +1,193 @@
+.detail-page {
+    padding: 3rem 0;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.main-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Image principale */
+.main-image-wrapper {
+    position: relative;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.main-image-wrapper img {
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-favorite {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.red { color: #e74c3c; }
+
+.btn-report{
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 17px;
+    padding: 17px;
+    color: #e9ecef;
+}
+
+.btn-report:hover{
+    cursor: pointer;
+    background-color: #d43422;
+}
+
+.btn-more{
+    margin-top: 45px;
+    padding: 17px;
+    background: white;
+    border: none;
+    border-radius: 19px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.btn-more:hover{
+    background: #1a202c;
+    color: #f8f9fa;
+}
+
+
+/* Info Column */
+.badge-category {
+    background: #e9ecef;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #495057;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2ecc71;
+    margin: 1.5rem 0;
+}
+
+/* Vendeur Card */
+.vendeur-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.vendeur-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.vendeur-name { font-weight: bold; margin: 0; }
+.vendeur-date { font-size: 0.85rem; color: #6c757d; margin: 0; }
+
+.btn-contact {
+    width: 100%;
+    background: #1a202c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Tabs */
+.tabs-header {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.tabs-header button {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+    color: #adb5bd;
+    position: relative;
+}
+
+.tabs-header button.active {
+    color: #1a202c;
+}
+
+.tabs-header button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #1a202c;
+}
+
+/* Similar Books Grid */
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.similar-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.similar-img-container img {
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

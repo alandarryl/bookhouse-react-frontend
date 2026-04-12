@@ -46,7 +46,7 @@ const NavBar = () => {
                     <div className="auth-links">
                         {connected ? 
                             <Link className="nav-link" to="/profile" onClick={() => setIsOpen(false)}>Profil</Link> : 
-                            <Link className="nav-link login-btn" to="/login" onClick={() => setIsOpen(false)}>Connexion</Link> 
+                            <Link className="nav-link login-btn" to="/Auth" onClick={() => setIsOpen(false)}>Connexion</Link> 
                         }
                     </div>
                 </div>

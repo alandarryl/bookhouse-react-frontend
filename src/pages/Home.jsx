@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Hero from '../components/section/Hero';
 import BestOffers from '../components/section/BestOffers';
+import PopularBooks from '../components/section/PopularBooks';
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
         <div>
         <Hero/>
         <BestOffers/>
+        <PopularBooks/>
             <h1>
                 This is the homepage
             </h1>

@@ -9,22 +9,9 @@ import kaiju from "../../assets/kaiju-n8-tome-14-5633783.jpg";
 import harry from "../../assets/harry-potter-tome-1-harry-potter-a-lecole-des-sorciers-337687.jpg";
 import apothicaire from "../../assets/apothicaire.jpg";
 
-import "./styles/bestOffer.css"
+import "./styles/bestOffer.css";
 
-const Card = ({image, titre, auteur, prix}) => {
-    return (
-        <div className='offer-card-mini'>
-            <div className='img-left'>
-                <img src={image} alt={titre} />
-            </div>
-            <div className='text-right'>
-                <h3 className='book-title'>{titre}</h3>
-                <p className='book-author'>{auteur}</p>
-                <span className='book-price'>{prix}</span>
-            </div>
-        </div>
-    )
-}
+import Card from '../layout/Card';
 
 function BestOffers() {
     return (

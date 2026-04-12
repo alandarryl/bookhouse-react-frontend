@@ -1,0 +1,123 @@
+.bestoffer-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.bestoffer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Grille principale */
+.offers-grid {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Colonne gauche */
+.left-col {
+    flex: 1.5; /* Plus large */
+}
+
+.main-img-container {
+    width: 100%;
+    height: 570px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.main-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-img-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Colonne droite */
+.right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Mini Cartes */
+.offer-card-mini {
+    display: flex;
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1rem;
+    height: 140px;
+    transition: 0.3s;
+}
+
+.offer-card-mini:hover {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    background: #fff;
+}
+
+.img-left {
+    width: 90px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.img-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.text-right {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.book-author {
+    color: #777;
+    font-size: 0.9rem;
+    margin: 0 0 10px 0;
+}
+
+.book-price {
+    font-weight: bold;
+    color: #2ecc71; /* Un petit vert sympa pour le prix */
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .offers-grid {
+        flex-direction: column;
+    }
+    .left-col, .right-col {
+        width: 100%;
+    }
+    .main-img-container {
+        height: 400px;
+    }
+}

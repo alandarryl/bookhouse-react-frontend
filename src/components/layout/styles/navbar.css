@@ -85,3 +85,61 @@ form input {
     background: #fff;
     color: #343a40;
 }
+
+/* Bouton Hamburger */
+.navbar-toggler {
+    display: none; /* Caché sur desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-toggler .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* --- MOBILE VERSION --- */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: flex; /* Apparaît sur mobile */
+    }
+
+    .navbar-items {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 40px; /* Juste en dessous de la nav */
+        left: 0;
+        width: 100%;
+        background-color: #343a40;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        z-index: 1000;
+        border-top: 1px solid #495057;
+    }
+
+    /* Quand l'état 'isOpen' est vrai, on ajoute la classe 'open' */
+    .navbar-items.open {
+        display: flex;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    form {
+        width: 80%;
+        justify-content: center;
+    }
+
+    form input {
+        width: 100%;
+    }
+}

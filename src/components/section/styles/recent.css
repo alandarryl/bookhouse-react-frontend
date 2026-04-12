@@ -1,0 +1,133 @@
+.py-5 {
+    padding: 8rem 0;
+    background: radial-gradient(circle at top right, #ffffff, #f8f9fa);
+}
+
+.recent-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.recent-container h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 4rem;
+    letter-spacing: -1px;
+    background: linear-gradient(45deg, #2d3436, #636e72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- LA GRILLE BENTO --- */
+.recent-container .row {
+    display: grid;
+    /* On crée 4 colonnes de base pour plus de contrôle */
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 300px);
+    gap: 20px;
+}
+
+/* La grande image occupe 2 lignes de haut */
+.first-col {
+    grid-row: span 2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.first-col .border-rounded {
+    height: 100%;
+    width: 100%;
+}
+
+.first-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Les petites cartes (second-col contient maintenant plusieurs Card) */
+/* Note : Dans ton JSX, il faudra peut-être sortir les Card de la div 'second-col' 
+   pour qu'elles soient des enfants directs de 'row', ou appliquer la grille sur 'second-col' */
+
+.second-col {
+    display: contents; /* Permet aux enfants (Cards) de se placer dans la grille parente */
+}
+
+/* Style "Premium" des Cards */
+.recent-container .offer-card-mini {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.recent-container .offer-card-mini:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    background: #ffffff;
+}
+
+.recent-container .img-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* L'image occupe le haut */
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+}
+
+.recent-container .img-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recent-container .text-right {
+    margin-top: 65%; /* Pousse le texte sous l'image absolue */
+}
+
+.recent-container .book-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.recent-container .book-price {
+    font-family: 'Monaco', monospace;
+    color: #ff7675;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 1024px) {
+    .recent-container .row {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    .first-col {
+        grid-column: span 2;
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .recent-container .row {
+        grid-template-columns: 1fr;
+    }
+    .first-col {
+        grid-column: span 1;
+    }
+}

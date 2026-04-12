@@ -1,23 +1,17 @@
-
-html,body {
+/* index.css */
+html, body {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  height: 100%; /* Important : oblige le body à prendre toute la hauteur */
+}
+
+#root {
+  /* C'est ici que la magie opère pour React */
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* Toute la hauteur de l'écran */
 }
 
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content{
-  flex: 1;
-}
-
-.footer{
-  background-color: #343a40;
-  color: #fff;
-  text-align: center;
+main {
+  flex: 1; /* Dit au contenu principal de "pousser" le footer vers le bas */
 }

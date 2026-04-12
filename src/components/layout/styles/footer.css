@@ -1,0 +1,61 @@
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 3rem 0 1rem 0; /* Plus d'espace en haut */
+    margin-top: auto; /* Sécurité supplémentaire pour le coller en bas */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Pour le mobile */
+    border-bottom: 1px solid #495057; /* Petite ligne de séparation */
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Style pour "BOOKHOUSE" */
+.first-row .col:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Conteneur des colonnes de liens */
+.footer-links-wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+/* Chaque colonne de liens */
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.link-column a {
+    color: #adb5bd;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.link-column a:hover {
+    color: #ffffff;
+}
+
+/* Copyright en bas */
+.footer p.mb {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 1rem;
+}

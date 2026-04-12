@@ -29,7 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/detail" element={<BookDetail />} />
         <Route path="/messaging" element={<Messaging />} />
-        <Route path="/Ads" element={<MyAds/>} />
+        <Route path="/profil" element={<MyAds/>} />
         <Route path="/AdList" element={<AdList/>} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>

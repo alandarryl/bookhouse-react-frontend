@@ -133,6 +133,14 @@
     align-items: center;
 }
 
+.user-sidebar{
+    background: #101828;
+}
+
+.sidebar-nav{
+    background: #101828;
+}
+
 .sidebar-scrollable-content { flex: 1; overflow-y: auto; padding: 20px; }
 
 .filter-group { margin-bottom: 30px; }

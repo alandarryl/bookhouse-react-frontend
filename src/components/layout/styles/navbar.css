@@ -2,7 +2,7 @@
 nav {
     width: 100%;
     background-color: #343a40;
-    padding: 0.5rem 0;
+    padding: 1.5rem 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -84,6 +84,20 @@ form input {
 .btn-outline-dark:hover {
     background: #fff;
     color: #343a40;
+}
+
+.btn-search{
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #343a40;
+    padding: 12px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-search:hover{
+    background: #495057;
+    color: #ced4da;
 }
 
 /* Bouton Hamburger */

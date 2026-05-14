@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./style/auth.css";
-
+import { useNavigate } from 'react-router-dom';
 import api from '../../utils/axiosConfig';
 
 function RegisterForm() {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword] = useState('');
     const [profilePicture, setProfilePicture] = useState('');
+
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -17,11 +21,20 @@ function RegisterForm() {
             username,
             email,
             password,
-            picture
+            profilePicture
         }
 
         try {
             const response = await api.post('/user/register', newUser);
+
+            if(response.status === 201|| response.status === 200 ){
+                setShowSuccess(true);
+
+                setTimeout(() => {
+                    navigate('/dashboard');
+                },2000);
+            }
+
         } catch (error) {
             console.log("Erreur lors de l'inscription : ", error.response?.data);
             alert(error.response?.data?.message || "Une erreur est survenue");
@@ -33,6 +46,14 @@ function RegisterForm() {
 
     return (
         <div className="auth-container">
+            {showSuccess && (
+                <div className='success-popup' >
+                    <div className='popup-content' >
+                        <h3> Inscription réussi !</h3>
+                        <p>Bienvenue {username}, redirection vers votre dashboard ...  </p>
+                    </div>
+                </div>
+            )}
             <div className="auth-card">
                 <h2>Rejoignez BOOKHOUSE</h2>
                 <p className="auth-subtitle">Créez votre compte en quelques secondes</p>
@@ -76,7 +97,7 @@ function RegisterForm() {
                         <input 
                         type="url" 
                         placeholder="https://..."
-                        value={picture}
+                        value={profilePicture}
                         onChange={(e) => setProfilePicture(e.target.value)}
                         />
                     </div>

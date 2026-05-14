@@ -10,6 +10,7 @@ import Favorites from './pages/Favorites';
 import Messaging from './pages/Messaging.jsx';
 import MyAds from './pages/MyAds.jsx';
 import AdList from './pages/AdList.jsx';
+import UserProfil from './pages/UserProfil.jsx';
 
 import Auth from "./pages/Auth.jsx";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/profil" element={<MyAds/>} />
         <Route path="/AdList" element={<AdList/>} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/dashboard" element={<UserProfil/>} />
       </Routes>
     </main>
       <Footer/>

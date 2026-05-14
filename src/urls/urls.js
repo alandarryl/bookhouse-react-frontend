@@ -1,6 +1,6 @@
 
 
-default export const URLS = {
+export const URLS = {
     BASE_URL: "https://bookhouse-express-backend.vercel.app/api" ,
     USER_API : {
         LOGIN : "",
@@ -23,4 +23,3 @@ default export const URLS = {
         //
     }
 };
-

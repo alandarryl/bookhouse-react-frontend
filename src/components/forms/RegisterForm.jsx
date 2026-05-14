@@ -2,15 +2,32 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./style/auth.css";
 
+import api from '../../utils/axiosConfig';
+
 function RegisterForm() {
-    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword] = useState('');
-    const [picture, setPicture] = useState('');
+    const [profilePicture, setProfilePicture] = useState('');
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log("Données du register :", {name, email, picture, password})
+
+        const newUser = {
+            username,
+            email,
+            password,
+            picture
+        }
+
+        try {
+            const response = await api.post('/user/register', newUser);
+        } catch (error) {
+            console.log("Erreur lors de l'inscription : ", error.response?.data);
+            alert(error.response?.data?.message || "Une erreur est survenue");
+        }
+
+        console.log("Données du register :", newUser)
     }
 
 
@@ -27,8 +44,8 @@ function RegisterForm() {
                             type="text" 
                             placeholder="JeanDupont" 
                             required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
 
@@ -60,7 +77,7 @@ function RegisterForm() {
                         type="url" 
                         placeholder="https://..."
                         value={picture}
-                        onChange={(e) => setPicture(e.target.value)}
+                        onChange={(e) => setProfilePicture(e.target.value)}
                         />
                     </div>
 

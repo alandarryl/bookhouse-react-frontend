@@ -1,0 +1,29 @@
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+}
+
+.dashboard-content {
+    margin-left: 260px; /* Doit être égal à la largeur de la sidebar */
+    flex: 1;
+    padding: 40px;
+}
+
+.profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}

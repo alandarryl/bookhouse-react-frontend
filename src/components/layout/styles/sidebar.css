@@ -1,162 +1,98 @@
-:root {
-    --primary-color: #2563eb;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --bg-light: #f8fafc;
-    --border-color: #e2e8f0;
-}
+/* Le conteneur principal de la barre latérale */
 
-.sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.sidebar-container {
-    width: 100%;
-    max-width: 400px;
-    background: white;
-    height: 100%;
+/* Modifié : On ajoute .sidebar devant pour verrouiller le style */
+.sidebar .sidebar-nav {
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
-}
-
-.sidebar-header {
-    padding: 24px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-header h3 { font-weight: 700; margin: 0; color: var(--text-main); }
-
-.sidebar-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 24px;
-}
-
-.filter-group { margin-bottom: 32px; }
-
-.group-title {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-
-/* PRICE INPUTS */
-.price-range {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.input-with-label {
-    flex: 1;
-    background: var(--bg-light);
-    border-radius: 10px;
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-}
-
-.input-with-label span {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-.input-with-label input {
-    width: 100%;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-weight: 600;
-}
-
-/* CUSTOM CHECKBOX/RADIO */
-.options-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.custom-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--text-main);
-}
-
-/* SELECT */
-.modern-select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    background: var(--bg-light);
-}
-
-/* TAGS */
-.category-tags {
-    display: flex;
-    flex-wrap: wrap;
     gap: 8px;
+    flex-grow: 1; /* Pousse le bouton déconnexion vers le bas */
+    background: transparent; /* Force le fond à être transparent pour annuler le #101828 parasite */
 }
 
-.tag-btn {
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background: white;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s;
+.sidebar {
+    width: 260px;
+    background-color: #1e293b; /* Bleu nuit moderne */
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Évite que le padding élargisse la sidebar */
 }
 
-.tag-btn:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+/* Le bloc Logo */
+.sidebar-logo {
+    margin-bottom: 35px;
+    padding-left: 10px;
 }
 
-/* FOOTER */
-.sidebar-footer {
-    padding: 24px;
-    border-top: 1px solid var(--border-color);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 12px;
+.sidebar-logo h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #38bdf8; /* Couleur cyan/bleu clair d'accentuation */
+    margin: 0;
+    letter-spacing: 1px;
 }
 
-.btn-reset {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+/* L'aside contenant la navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1; /* Pousse le bouton déconnexion vers le bas */
+}
+
+/* Style de chaque lien de navigation */
+.sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #94a3b8; /* Gris doux par défaut */
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 10px;
     font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
 }
 
-.btn-apply {
-    background: var(--primary-color);
-    color: white;
-    border: none;
+/* Effet au survol */
+.sidebar .nav-item:hover {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+/* État Actif (Onglet sélectionné) */
+.sidebar .nav-item.active {
+    background-color: #0284c7; /* Bleu royal */
+    color: #ffffff;
+}
+
+/* Gestion de l'icône dans le lien */
+.sidebar .nav-item .icon {
+    font-size: 1.2rem;
+}
+
+/* Le bouton Déconnexion tout en bas */
+.sidebar .logout-btn {
+    background-color: rgba(239, 68, 68, 0.1); /* Rouge très transparent */
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #ef4444;
     padding: 14px;
-    border-radius: 12px;
-    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+/* Effet au survol du bouton déconnexion */
+.sidebar .logout-btn:hover {
+    background-color: #ef4444;
+    color: #ffffff;
 }

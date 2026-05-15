@@ -127,7 +127,7 @@ form input {
         display: none; /* Caché par défaut */
         flex-direction: column;
         position: absolute;
-        top: 40px; /* Juste en dessous de la nav */
+        top: 70px; /* Juste en dessous de la nav */
         left: 0;
         width: 100%;
         background-color: #343a40;

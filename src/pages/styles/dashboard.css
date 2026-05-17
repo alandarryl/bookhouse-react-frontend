@@ -10,6 +10,20 @@
     padding: 40px;
 }
 
+.edit-btn{
+    background: #94a3b8;
+    border: none;
+    border-radius: 17px;
+    padding: 15px 25px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Effet au survol */
+.edit-btn:hover {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
 .profile-card {
     background: white;
     padding: 20px;

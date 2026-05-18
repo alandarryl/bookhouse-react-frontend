@@ -51,7 +51,7 @@ const NavBar = () => {
                         {user ? 
                             <Link to="/dashboard" className="navbar-profile-link">
                                 <img 
-                                    src={user.image_profil || DefaultUser} 
+                                    src={user.image_profil || DefaultProfile} 
                                     alt="Mon profil" 
                                     className="navbar-avatar" 
                                 />

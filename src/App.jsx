@@ -13,6 +13,7 @@ import AdList from './pages/AdList.jsx';
 import UserProfil from './pages/UserProfil.jsx';
 
 import Auth from "./pages/Auth.jsx";
+import { AuthProvider } from './context/AuthContext.jsx';
 
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
@@ -23,27 +24,29 @@ import Footer from './components/layout/Footer';
 function App() {
 
   return (
-    <Router>
-    <NavBar/>
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Auth" element={<Auth />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/detail" element={<BookDetail />} />
-        <Route path="/messaging" element={<Messaging />} />
-        <Route path="/profil" element={<MyAds/>} />
-        <Route path="/AdList" element={<AdList/>} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <UserProfil/>
-          </ProtectedRoute>
-        } />
-      </Routes>
-    </main>
-      <Footer/>
-    </Router>
+    <AuthProvider>
+      <Router>
+      <NavBar/>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Auth" element={<Auth />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/detail" element={<BookDetail />} />
+          <Route path="/messaging" element={<Messaging />} />
+          <Route path="/profil" element={<MyAds/>} />
+          <Route path="/AdList" element={<AdList/>} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <UserProfil/>
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </main>
+        <Footer/>
+      </Router>
+    </AuthProvider>
   )
 }
 

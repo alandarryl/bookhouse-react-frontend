@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from "../../utils/axiosConfig"
 import "./style/auth.css";
+import { useAuth } from '../../context/AuthContext';
 
 function LoginForm() {
     const navigate = useNavigate();
+
+    const { setUser } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +25,8 @@ function LoginForm() {
 
             if(response.status === 200){
                 console.log("Connexion réussi !", response.data);
+
+                setUser(response.data);
 
                 navigate('/dashboard');
             }

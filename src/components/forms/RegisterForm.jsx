@@ -10,7 +10,7 @@ function RegisterForm() {
     const [username, setUsername] = useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword] = useState('');
-    const [profilePicture, setProfilePicture] = useState('');
+    const [image_profil, setImage_profil] = useState('');
 
     const [showSuccess, setShowSuccess] = useState(false);
 
@@ -21,7 +21,7 @@ function RegisterForm() {
             username,
             email,
             password,
-            profilePicture
+            image_profil
         }
 
         try {
@@ -97,8 +97,8 @@ function RegisterForm() {
                         <input 
                         type="url" 
                         placeholder="https://..."
-                        value={profilePicture}
-                        onChange={(e) => setProfilePicture(e.target.value)}
+                        value={image_profil}
+                        onChange={(e) => setImage_profil(e.target.value)}
                         />
                     </div>
 

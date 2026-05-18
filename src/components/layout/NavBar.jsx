@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./styles/navbar.css";
+import DefaultProfile from "../../assets/default-profile.png";
+import { useAuth } from "../../context/AuthContext";
 
 const NavBar = () => {
     const [connected, setConnected] = useState(false);
     // État pour le menu mobile
     const [isOpen, setIsOpen] = useState(false);
+
+    const {user}= useAuth();
 
     return (
         <nav className="navbar">
@@ -44,8 +48,16 @@ const NavBar = () => {
                     </form>
 
                     <div className="auth-links">
-                        {connected ? 
-                            <Link className="nav-link" to="/profile" onClick={() => setIsOpen(false)}>Profil</Link> : 
+                        {user ? 
+                            <Link to="/dashboard" className="navbar-profile-link">
+                                <img 
+                                    src={user.image_profil || DefaultUser} 
+                                    alt="Mon profil" 
+                                    className="navbar-avatar" 
+                                />
+                                <span>{user.username}</span>
+                            </Link> 
+                            : 
                             <Link className="nav-link login-btn" to="/Auth" onClick={() => setIsOpen(false)}>Connexion</Link> 
                         }
                     </div>

@@ -4,8 +4,12 @@ import "./style/auth.css";
 import { useNavigate } from 'react-router-dom';
 import api from '../../utils/axiosConfig';
 
+import { useAuth } from '../../context/AuthContext';
+
 function RegisterForm() {
     const navigate = useNavigate();
+
+    const { setUser } = useAuth();
 
     const [username, setUsername] = useState('');
     const [email, setEmail]= useState('');
@@ -31,6 +35,7 @@ function RegisterForm() {
                 setShowSuccess(true);
 
                 setTimeout(() => {
+                    setUser(newUser);
                     navigate('/dashboard');
                 },2000);
             }

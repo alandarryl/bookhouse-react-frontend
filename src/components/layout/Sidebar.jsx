@@ -3,17 +3,24 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./styles/sidebar.css";
 
+import { useAuth } from "../../context/AuthContext";
+
 function Sidebar() {
     const navigate = useNavigate();
 
+    const { logout } = useAuth();
+
     const handleLogout = () =>{
+        logout();
         navigate('/Auth');
     };
 
     return (
         <div className="sidebar" >
             <div className="sidebar-logo" >
-                <h2>BOOKHOUSE</h2>
+                <Link to="/" >
+                    <h2>BOOKHOUSE</h2>
+                </Link>
             </div>
 
             <aside className="sidebar-nav" >

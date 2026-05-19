@@ -4,10 +4,14 @@ import "./styles/dashboard.css";
 import DefaultUser from "../assets/default-profile.png";
 import api from '../utils/axiosConfig.js';
 
+// import { useAuth } from '../context/AuthContext.jsx';
+
 function UserProfile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+
+    // const {user} = useAuth();
 
     useEffect(() => {
         const fetchUserProfile =async () => {
@@ -50,7 +54,7 @@ function UserProfile() {
                 </div>
 
                 <div className="profile-card">
-                    <img src={user?.profilePicture || DefaultUser} alt="Profil" className="profile-img" />
+                    <img src={user?.image_profil || DefaultUser} alt="Profil" className="profile-img" />
                     <div className="profile-info">
                         <h3>{user?.username}</h3>
                         <p>{user?.email}</p>

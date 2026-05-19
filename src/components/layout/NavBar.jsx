@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./styles/navbar.css";
 import DefaultProfile from "../../assets/default-profile.png";
@@ -10,6 +10,10 @@ const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const {user}= useAuth();
+
+    const location = useLocation();
+
+    if (location.pathname.startsWith("/dashboard")) return null;
 
     return (
         <nav className="navbar">

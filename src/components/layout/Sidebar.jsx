@@ -5,7 +5,7 @@ import "./styles/sidebar.css";
 
 import { useAuth } from "../../context/AuthContext";
 
-function Sidebar() {
+function Sidebar({ currentSection, changeSection }) {
     const navigate = useNavigate();
 
     const { logout } = useAuth();
@@ -24,18 +24,30 @@ function Sidebar() {
             </div>
 
             <aside className="sidebar-nav" >
-                <Link to="/dashboard" className="nav-item active" >
+                <button
+                    onClick={() =>changeSection('profil')} 
+                    className={`nav-item ${currentSection === 'profil' ? 'active' : '' }`}
+                >
                     <span className="icon" >👤</span> Mon profil
-                </Link>
-                <Link to="/dashboard/books" className="nav-item">
+                </button>
+                <button
+                    onClick={() =>changeSection('books')}  
+                    className={`nav-item ${currentSection === 'books' ? 'active' : '' }`}
+                >
                     <span className="icon" >📚</span> Mes Annonces
-                </Link> 
-                <Link to="/dashboard/messages" className="nav-item">
+                </button> 
+                <button
+                    onClick={() =>changeSection('messages')}  
+                    className={`nav-item ${currentSection === 'messages' ? 'active' : '' }`}
+                >
                     <span className="icon" >💬</span> Discussions
-                </Link> 
-                <Link to="/dashboard/favorites" className="nav-item">
+                </button> 
+                <button
+                    onClick={() =>changeSection('favorites')}  
+                    className={`nav-item ${currentSection === 'favorites' ? 'active' : '' }`}
+                >
                     <span className="icon" >❤️</span> Favoris
-                </Link> 
+                </button> 
             </aside>
 
             <button className="logout-btn" onClick={handleLogout}>

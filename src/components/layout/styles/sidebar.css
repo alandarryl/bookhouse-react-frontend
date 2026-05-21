@@ -30,6 +30,18 @@
     padding-left: 10px;
 }
 
+.sidebar-logo a {
+    text-decoration: none; /* Supprime le soulignement sous le titre du logo */
+}
+
+/* L'aside contenant la navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1; /* Pousse le bouton déconnexion vers le bas */
+}
+
 .sidebar-logo h2 {
     font-size: 1.4rem;
     font-weight: 800;
@@ -58,6 +70,14 @@
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.2s ease-in-out;
+    
+    /* --- CORRECTIONS POUR COMPOSANT BOUTON --- */
+    background: transparent;  /* Supprime le fond gris des boutons natifs */
+    border: none;             /* Supprime les bordures natives des boutons */
+    cursor: pointer;          /* Remet le curseur "main" (pointer) au survol */
+    text-align: left;         /* Aligne le texte à gauche */
+    font-family: inherit;     /* Force le bouton à utiliser la même police que l'appli */
+    width: 100%;              /* Force le bouton à prendre toute la largeur disponible */
 }
 
 /* Effet au survol */
@@ -89,6 +109,7 @@
     font-size: 0.95rem;
     transition: all 0.2s ease;
     width: 100%;
+    font-family: inherit; /* Ajouté pour harmoniser la police */
 }
 
 /* Effet au survol du bouton déconnexion */

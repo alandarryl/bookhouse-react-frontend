@@ -6,12 +6,50 @@ import api from '../utils/axiosConfig.js';
 
 // import { useAuth } from '../context/AuthContext.jsx';
 
+//import section
+import Profile from '../components/layout/DashboardSection/Profile.jsx';
+
 function UserProfile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
     // const {user} = useAuth();
+
+    //state use to change section
+    const [activeSection, setActiveSection] = useState('profil');
+
+    //fonction to render section in user profile
+    const renderSection = () =>{
+        switch (activeSection){
+            case 'profil':
+                return(
+                    <div className='dashboard-card' >
+                        <Profile user={user} DefaultUser={DefaultUser} />
+                    </div>
+                );
+            case 'books':
+                return(
+                    <div className='dashboard-card' >
+                        <h3>annonces</h3>
+                    </div>
+                );
+            case 'favorites':
+                return(
+                    <div className='dashboard-card' >
+                        <h3>favorites</h3>
+                    </div>
+                );
+            case 'messages':
+                return(
+                    <div className='dashboard-card' >
+                        <h3>messages</h3>
+                    </div>
+                );
+            default:
+                return <div>selectionner une section</div>
+        }
+    };
 
     useEffect(() => {
         const fetchUserProfile =async () => {
@@ -45,35 +83,10 @@ function UserProfile() {
 
     return (
         <div className="dashboard-layout">
-            <Sidebar />
-            
-            <main className="dashboard-content">
-                <div className="profile-header">
-                    <h1>Tableau de bord</h1>
-                    <p>Bienvenue sur votre espace personnel</p>
-                </div>
-
-                <div className="profile-card">
-                    <img src={user?.image_profil || DefaultUser} alt="Profil" className="profile-img" />
-                    <div className="profile-info">
-                        <h3>{user?.username}</h3>
-                        <p>{user?.email}</p>
-                        <button className="edit-btn">Modifier le profil</button>
-                    </div>
-                </div>
-
-                {/* Ici tu pourras rajouter les sections futures */}
-                <div className="dashboard-stats">
-                    <div className="stat-box">
-                        <h4>{user?.booksCount || 0}</h4>
-                        <p>Livres postés</p>
-                    </div>
-                    <div className="stat-box">
-                        <h4>{user?.favoritesCount || 0}</h4>
-                        <p>Favoris</p>
-                    </div>
-                </div>
-            </main>
+            <Sidebar currentSection={activeSection} changeSection={setActiveSection} />
+                <main className="dashboard-content">
+                    {renderSection()}
+                </main>
         </div>
     );
 }

@@ -41,3 +41,251 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+
+/* Conteneurs de base */
+.section-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* 1. Style Section Profil */
+.profile-header-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-avatar-large {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #38bdf8;
+}
+
+.badge-role {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.profile-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.disabled-input {
+    padding: 12px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #64748b;
+    font-family: inherit;
+}
+
+/* Boutons et actions */
+.btn-primary-action, .btn-add-book {
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primary-action:hover, .btn-add-book:hover {
+    background-color: #0369a1;
+}
+
+/* 2. Style Grille de Cartes (Annonces et Favoris) */
+.books-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.book-item-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.book-item-card:hover {
+    transform: translateY(-4px);
+}
+
+.book-cover-placeholder {
+    height: 160px;
+    background: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.book-card-details {
+    padding: 15px;
+}
+
+.book-card-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #1e293b;
+}
+
+.book-author {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin: 0 0 10px 0;
+}
+
+.book-price-tag {
+    font-weight: 700;
+    color: #0284c7;
+}
+
+.btn-remove-fav {
+    background: none;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+/* 3. Style Messagerie */
+.chat-interface-layout {
+    display: flex;
+    height: 450px;
+    border: 1px solid #e2e8f0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.chat-sidebar-list {
+    width: 300px;
+    border-right: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.chat-summary-item {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.active-chat {
+    background: #e0f2fe;
+}
+
+.chat-avatar-mini {
+    background: #cbd5e1;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.chat-text-preview h5 {
+    margin: 0;
+}
+
+.chat-text-preview p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.chat-main-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-window-messages {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+.message-bubble.received {
+    background: #f1f5f9;
+    align-self: flex-start;
+}
+
+.message-bubble.sent {
+    background: #0284c7;
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-input-bar {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #e2e8f0;
+    gap: 10px;
+}
+
+.chat-input-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.btn-send-message {
+    background: #0284c7;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}

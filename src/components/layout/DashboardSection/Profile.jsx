@@ -1,35 +1,40 @@
-import React from 'react'
+import React from 'react';
 
-function Profile({user, DefaultUser}) {
+function Profile({ user, DefaultUser }) {
+    // Sécurité au cas où l'API met du temps à répondre
+    const username = user?.username || "Utilisateur";
+    const email = user?.email || "non-renseigné@mail.com";
+    const role = user?.role || "Membre";
+
     return (
-        <div>
-            <div className="profile-header">
-                <h1>Tableau de bord</h1>
-                <p>Bienvenue sur votre espace personnel</p>
+        <div className="section-container">
+            <div className="profile-header-block">
+                <img 
+                    src={DefaultUser} 
+                    alt="Avatar de l'utilisateur" 
+                    className="profile-avatar-large" 
+                />
+                <div>
+                    <h2>{username}</h2>
+                    <span className="badge-role">{role}</span>
+                </div>
             </div>
-            
-            <div className="profile-card">
-                <img src={user?.image_profil || DefaultUser} alt="Profil" className="profile-img" />
-                <div className="profile-info">
-                    <h3>{user?.username}</h3>
-                    <p>{user?.email}</p>
-                    <button className="edit-btn">Modifier le profil</button>
+
+            <div className="profile-form-grid">
+                <div className="form-group">
+                    <label>Nom d'utilisateur</label>
+                    <input type="text" value={username} readOnly className="disabled-input" />
+                </div>
+
+                <div className="form-group">
+                    <label>Adresse e-mail</label>
+                    <input type="email" value={email} readOnly className="disabled-input" />
                 </div>
             </div>
             
-            {/* Ici tu pourras rajouter les sections futures */}
-            <div className="dashboard-stats">
-                <div className="stat-box">
-                    <h4>{user?.booksCount || 0}</h4>
-                    <p>Livres postés</p>
-                </div>
-                <div className="stat-box">
-                    <h4>{user?.favoritesCount || 0}</h4>
-                    <p>Favoris</p>
-                </div>
-            </div>
+            <button className="btn-primary-action">Modifier mon profil</button>
         </div>
-    )
+    );
 }
 
 export default Profile;

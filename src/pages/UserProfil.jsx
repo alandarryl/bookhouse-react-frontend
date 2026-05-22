@@ -8,6 +8,9 @@ import api from '../utils/axiosConfig.js';
 
 //import section
 import Profile from '../components/layout/DashboardSection/Profile.jsx';
+import Annonce from '../components/layout/DashboardSection/Annonce.jsx';
+import Favoris from '../components/layout/DashboardSection/Favoris.jsx';
+import Discussion from '../components/layout/DashboardSection/Discussion.jsx';
 
 function UserProfile() {
     const [user, setUser] = useState(null);
@@ -31,23 +34,27 @@ function UserProfile() {
             case 'books':
                 return(
                     <div className='dashboard-card' >
-                        <h3>annonces</h3>
+                        <Annonce/>
                     </div>
                 );
             case 'favorites':
                 return(
                     <div className='dashboard-card' >
-                        <h3>favorites</h3>
+                        <Favoris/>
                     </div>
                 );
             case 'messages':
                 return(
                     <div className='dashboard-card' >
-                        <h3>messages</h3>
+                        <Discussion/>
                     </div>
                 );
             default:
-                return <div>selectionner une section</div>
+                return (
+                    <div className='dashboard-card' >
+                        <Profile user={user} DefaultUser={DefaultUser} />
+                    </div>
+                );
         }
     };
 

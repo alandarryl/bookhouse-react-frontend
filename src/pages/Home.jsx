@@ -6,6 +6,7 @@ import Hero from '../components/section/Hero';
 import BestOffers from '../components/section/BestOffers';
 import PopularBooks from '../components/section/PopularBooks';
 import RecentBooks from '../components/section/RecentBooks';
+import Testimonials from '../components/section/Testimonials';
 
 const Home = () => {
 
@@ -14,7 +15,7 @@ const Home = () => {
             <Hero/>
             <BestOffers/>
             <PopularBooks/>
-            <RecentBooks/>
+            <Testimonials/>
         </div>
     );
 };

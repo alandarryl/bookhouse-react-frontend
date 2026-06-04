@@ -1,0 +1,177 @@
+/* ==========================================================================
+   CONTENEUR ET EN-TÊTE
+   ========================================================================== */
+.testimonials-section {
+    padding: 6rem 0;
+    background-color: #ffffff; /* Fond blanc propre pour contrer le fond gris de la section populaire */
+    width: 100%;
+    display: block;
+    position: relative;
+    clear: both;
+    box-sizing: border-box;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.testimonials-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+}
+
+/* Petit badge moderne style e-commerce récent */
+.badge-modern {
+    background-color: #e0f2fe; /* Fond bleu très clair sky */
+    color: #0284c7; /* Bleu royal */
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.testimonials-header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1e293b; /* Bleu nuit */
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.5px;
+}
+
+.testimonials-header p {
+    color: #64748b; /* Gris doux */
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==========================================================================
+   GRILLE ET DESIGN DES CARTES D'AVIS
+   ========================================================================== */
+.testimonials-grid {
+    display: grid;
+    /* 3 colonnes sur PC, s'adapte automatiquement sur tablette */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.testimonial-card {
+    background: #f8fafc; /* Gris-bleu ultra léger */
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: all 0.25s ease-in-out;
+}
+
+.testimonial-card:hover {
+    background: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(30, 41, 59, 0.06);
+    border-color: #38bdf8; /* Ligne cyan discrète */
+}
+
+/* Étoiles & Badge de vérification */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.stars {
+    color: #f59e0b; /* Jaune ambre moderne, pas agressif */
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #10b981; /* Vert émeraude moderne */
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: #ecfdf5;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* Texte du commentaire */
+.testimonial-card .comment {
+    font-size: 1rem;
+    color: #334155; /* Couleur de texte lisible */
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 2rem 0;
+    flex-grow: 1; /* Aligne le profil en bas si un texte est plus court */
+}
+
+/* Profil de l'utilisateur */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.25rem;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #cbd5e1;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.user-role {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 4rem 0;
+    }
+
+    .testimonials-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* 1 seule colonne bien droite sur mobile */
+        gap: 1.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+}

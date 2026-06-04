@@ -12,6 +12,9 @@ import Annonce from '../components/layout/DashboardSection/Annonce.jsx';
 import Favoris from '../components/layout/DashboardSection/Favoris.jsx';
 import Discussion from '../components/layout/DashboardSection/Discussion.jsx';
 
+//forms
+import DashboardBooks from '../components/layout/DashboardSection/DashboardBooks.jsx';
+
 function UserProfile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -29,6 +32,7 @@ function UserProfile() {
                 return(
                     <div className='dashboard-card' >
                         <Profile user={user} DefaultUser={DefaultUser} />
+                        <DashboardBooks/>
                     </div>
                 );
             case 'books':

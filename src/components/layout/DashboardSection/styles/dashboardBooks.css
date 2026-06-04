@@ -1,0 +1,185 @@
+.db-books-wrapper {
+    display: grid;
+    grid-template-columns: 1.2f 1fr; /* Formulaire légèrement plus large que la liste */
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style des grands blocs */
+.db-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.02);
+}
+
+.db-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.4rem;
+    color: #1e293b; /* Bleu nuit */
+    font-weight: 800;
+}
+
+.db-card .subtitle {
+    margin: 0 0 2rem 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   STYLE DU FORMULAIRE MODERNISÉ
+   ========================================================================== */
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #0284c7; /* Bleu royal */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+}
+
+/* Bouton d'action du Dashboard */
+.btn-primary-db {
+    background-color: #1e293b; /* Bleu nuit pro */
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+.btn-primary-db:hover {
+    background-color: #0284c7; /* Switch sur le bleu royal au survol */
+}
+
+/* Alertes d'état */
+.alert-message {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+.alert-message.success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+.alert-message.error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* ==========================================================================
+   LISTING DE CONTRÔLE DES LIVRES APPELÉS VIA AXIOS
+   ========================================================================== */
+.db-books-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 500px; /* Ajoute un scroll si tu as énormément de livres */
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.db-book-mini-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.db-book-img {
+    width: 50px;
+    height: 70px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.db-book-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.db-book-details h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.db-book-details .author {
+    margin: 2px 0 0 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.db-book-details .price {
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0284c7;
+}
+
+.db-loader, .empty-db {
+    text-align: center;
+    color: #64748b;
+    padding: 3rem 0;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETTE ET MOBILE)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .db-books-wrapper {
+        grid-template-columns: 1fr; /* Formulaire et liste passent l'un sous l'autre */
+    }
+}

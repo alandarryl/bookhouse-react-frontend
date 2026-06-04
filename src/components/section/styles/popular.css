@@ -1,141 +1,169 @@
+/* ==========================================================================
+   CONTENEUR PRINCIPAL (SÉCURISÉ)
+   ========================================================================== */
 .popular-book {
     padding: 5rem 0;
-    /* Option A : Gris-bleu très léger (Moderne et Propre) */
-    background-color: #f0f2f5; 
-    
-    /* Option B : Ivoire / Crème (Plus chaleureux) - Décommente si tu préfères */
-    /* background-color: #fdfcf0; */
-
-    border-top: 1px solid #e1e4e8;
-    border-bottom: 1px solid #e1e4e8;
+    background-color: #f8fafc; /* Gris-bleu très léger */
+    width: 100%;
+    display: block;
+    position: relative;
+    clear: both;
+    box-sizing: border-box;
 }
 
 .popular-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
 }
 
-/* Le titre de la section */
-.text-center {
+.popular-book .text-center {
     text-align: center;
+    margin-top: 0;
     margin-bottom: 3rem;
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1a1a1a;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #1e293b; /* Bleu nuit */
 }
 
-/* Structure en deux colonnes */
-.popular-book .row {
+/* ==========================================================================
+   STRUCTURE EN 2 COLONNES ALIGNÉES
+   ========================================================================== */
+.popular-row {
     display: flex;
     gap: 2rem;
-    align-items: stretch;
+    align-items: stretch; /* Force la colonne gauche et droite à faire la même hauteur */
+    width: 100%;
 }
 
-/* --- Colonne de Gauche --- */
-.popular-book .col:first-child {
-    flex: 1;
-    min-width: 320px;
+/* Colonne de Gauche (Image) */
+.popular-col-left {
+    flex: 1; /* Même importance que la colonne de droite */
+    min-width: 0;
 }
 
-.popular-book .border-rounded {
-    height: 100%;
-    border-radius: 20px; /* Coins plus arrondis pour un look moderne */
+.popular-col-left .border-rounded {
+    width: 100%;
+    height: 100%; /* Prend toute la hauteur disponible de la ligne */
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.popular-book .border-rounded img {
+.popular-col-left .border-rounded img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* L'image s'adapte sans se déformer */
+    display: block;
 }
 
-.popular-book .border-rounded:hover img {
-    transform: scale(1.05); /* Zoom doux sur la grande image */
-}
-
-/* --- Colonne de Droite (Grille) --- */
-.popular-book .col:last-child {
-    flex: 2;
+/* ==========================================================================
+   COLONNE DE DROITE : LA GRILLE 2x2 (STYLE BOOTSTRAP)
+   ========================================================================== */
+.popular-col-right.cards-grid {
+    flex: 1; /* Même importance que la colonne de gauche */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-template-rows: repeat(2, 1fr);    /* 2 lignes */
+    gap: 1.5rem; /* Espace entre les cartes */
+    min-width: 0;
 }
 
-/* --- Les Cards Verticales --- */
-.popular-book .offer-card-mini {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff; /* Le blanc sur le fond gris ressort très bien */
-    border-radius: 15px;
+/* Style des cartes individuelles (Inspiré du look épuré de Bootstrap) */
+.popular-col-right .offer-card-mini {
+    display: flex !important;
+    flex-direction: column !important; /* Format vertical classique de Bootstrap */
+    background: #ffffff;
+    border: 1px solid #dee2e6; /* Bordure grise standard Bootstrap */
+    border-radius: 8px;
     overflow: hidden;
-    border: none; /* On enlève la bordure, l'ombre suffira */
     height: 100%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    box-sizing: border-box;
+    transition: transform 0.2rem, box-shadow 0.2rem;
 }
 
-.popular-book .offer-card-mini:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+.popular-col-right .offer-card-mini:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #b4c6ef;
 }
 
-.popular-book .img-left {
-    width: 100%;
-    height: 280px;
+/* Zone Image de la carte */
+.popular-col-right .img-left {
+    width: 100% !important;
+    height: 160px !important; /* Hauteur fixe pour l'image dans la grille */
+    flex-shrink: 0;
 }
 
-.popular-book .img-left img {
+.popular-col-right .img-left img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.popular-book .text-right {
-    padding: 1.5rem;
-    text-align: center;
+/* Zone Texte de la carte */
+.popular-col-right .text-right {
+    padding: 1rem;
+    margin-left: 0 !important; /* Supprime le décalage horizontal des autres sections */
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 4px;
+    text-align: left;
 }
 
-.popular-book .book-title {
-    font-size: 1.15rem;
+.popular-col-right .book-title {
+    font-size: 1rem;
     font-weight: 700;
-    color: #2d3436;
+    color: #212529; /* Couleur texte Bootstrap */
+    margin: 0;
 }
 
-.popular-book .book-author {
-    color: #636e72;
-    font-size: 0.95rem;
+.popular-col-right .book-author {
+    color: #6c757d; /* Couleur mute Bootstrap */
+    font-size: 0.85rem;
+    margin: 0;
 }
 
-.popular-book .book-price {
-    margin-top: auto;
-    font-weight: 800;
-    font-size: 1.25rem;
-    color: #0984e3; /* Un bleu plus vif pour le prix */
+.popular-col-right .book-price {
+    margin-top: auto; /* Aligne le prix tout en bas de la carte */
+    font-weight: 700;
+    color: #0284c7; /* Ton bleu royal moderne */
+    font-size: 1.1rem;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 1100px) {
-    .popular-book .col:last-child {
-        grid-template-columns: repeat(2, 1fr);
+/* ==========================================================================
+   RESPONSIVE DESIGN (EMPILAGE SUR MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Sur tablette, on réduit un peu la hauteur des images des cartes */
+    .popular-col-right .img-left {
+        height: 130px !important;
     }
 }
 
 @media (max-width: 768px) {
-    .popular-book .row {
-        flex-direction: column;
+    .popular-book {
+        padding: 3.5rem 0;
     }
-    .popular-book .col:first-child {
-        height: 400px;
+
+    .popular-row {
+        flex-direction: column; /* On empile la grande image et la grille */
     }
-    .popular-book .col:last-child {
+
+    /* La grande image s'adapte en bannière sur mobile */
+    .popular-col-left .border-rounded {
+        height: 300px; 
+    }
+
+    /* La grille passe à 1 seule colonne : tout s'empile proprement */
+    .popular-col-right.cards-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+    }
+
+    .popular-col-right .img-left {
+        height: 200px !important; /* Plus d'espace pour l'image sur grand mobile */
     }
 }

@@ -1,7 +1,12 @@
 import React from 'react';
+import DashboardBooks from './DashboardBooks';
 
 function Annonces() {
     return (
+        <>
+
+        <DashboardBooks/>
+
         <div className="section-container">
             <div className="section-header-flex">
                 <h2>Mes Livres en ligne</h2>
@@ -20,6 +25,7 @@ function Annonces() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

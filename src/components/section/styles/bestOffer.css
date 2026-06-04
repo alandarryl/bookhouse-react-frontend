@@ -1,78 +1,105 @@
+/* ==========================================================================
+   CONTENEUR ET TITRE
+   ========================================================================== */
 .bestoffer-section {
-    padding: 4rem 0;
-    background-color: #fff;
+    padding: 5rem 0;
+    background-color: #ffffff; /* Fond blanc propre */
 }
 
 .bestoffer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 2.5rem;
-    font-size: 2rem;
-    font-weight: bold;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b; /* Bleu nuit moderne */
+    letter-spacing: -0.5px;
 }
 
-/* Grille principale */
+/* ==========================================================================
+   GRILLE ET BLOC PRINCIPAL (GAUCHE)
+   ========================================================================== */
 .offers-grid {
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+    gap: 2.5rem;
+    align-items: stretch; /* Force les deux colonnes à faire la même hauteur */
 }
 
-/* Colonne gauche */
 .left-col {
-    flex: 1.5; /* Plus large */
+    flex: 1.2; /* Rééquilibrage des proportions */
+    min-width: 0; /* Évite les bugs de débordement flex */
+}
+
+.main-offer-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
 }
 
 .main-img-container {
     width: 100%;
-    height: 570px;
-    border-radius: 12px;
+    height: 100%;
+    min-height: 500px; /* Sécurité pour garder une belle taille */
+    max-height: 520px; /* Évite que l'image ne devienne géante */
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(30, 41, 59, 0.1);
+    transition: all 0.3s ease;
 }
 
 .main-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-img-container:hover {
+    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2); /* Ombre teintée bleu royal */
 }
 
 .main-img-container:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-/* Colonne droite */
+/* ==========================================================================
+   LISTE DES MINI CARTES (DROITE)
+   ========================================================================== */
 .right-col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    justify-content: space-between; /* Aligne parfaitement les 3 cartes sur la hauteur */
+    gap: 1.25rem;
 }
 
-/* Mini Cartes */
+/* Note : Si ton composant <Card /> génère la classe ".offer-card-mini",
+   ces styles vont s'appliquer automatiquement dessus */
 .offer-card-mini {
     display: flex;
-    background: #f8f9fa;
-    border: 1px solid #eee;
-    border-radius: 10px;
+    background: #f8fafc; /* Gris/bleu très clair et doux */
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
     padding: 1rem;
-    height: 140px;
-    transition: 0.3s;
+    height: 150px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
 }
 
 .offer-card-mini:hover {
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-    background: #fff;
+    background: #ffffff;
+    border-color: #38bdf8; /* Bordure cyan au survol */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transform: translateX(4px); /* Petit effet de glissement vers la droite */
 }
 
 .img-left {
-    width: 90px;
+    width: 95px;
     height: 100%;
     flex-shrink: 0;
 }
@@ -81,7 +108,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .text-right {
@@ -93,31 +120,64 @@
 
 .book-title {
     font-size: 1.1rem;
-    margin: 0 0 5px 0;
-    color: #333;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: #1e293b; /* Bleu nuit */
 }
 
 .book-author {
-    color: #777;
+    color: #64748b; /* Gris doux */
     font-size: 0.9rem;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
 }
 
 .book-price {
-    font-weight: bold;
-    color: #2ecc71; /* Un petit vert sympa pour le prix */
-    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0284c7; /* Bleu royal pour remplacer le vert basique */
+    font-size: 1.15rem;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETTE & MOBILE)
+   ========================================================================== */
+
+/* 1. Ajustement pour les écrans intermédiaires (Tablettes paysages) */
+@media (max-width: 1024px) {
+    .main-img-container {
+        min-height: 440px;
+        max-height: 440px;
+    }
+    .offer-card-mini {
+        height: 135px;
+    }
+}
+
+/* 2. Passage en mode colonne (Tablettes verticales et téléphones) */
+@media (max-width: 768px) {
+    .bestoffer-section {
+        padding: 3.5rem 0;
+    }
+
     .offers-grid {
         flex-direction: column;
+        gap: 2rem;
     }
+
     .left-col, .right-col {
         width: 100%;
     }
+
+    /* Évite que le gros bloc de gauche ne prenne trop de place sur smartphone */
     .main-img-container {
-        height: 400px;
+        min-height: 280px;
+        max-height: 320px;
+    }
+
+    .offer-card-mini {
+        height: 140px;
+    }
+    
+    .offer-card-mini:hover {
+        transform: none; /* Désactive le décalage horizontal sur mobile */
     }
 }

@@ -10,7 +10,6 @@ function Annonces() {
         <div className="section-container">
             <div className="section-header-flex">
                 <h2>Mes Livres en ligne</h2>
-                <button className="btn-add-book">+ Ajouter une annonce</button>
             </div>
 
             <div className="books-grid-layout">

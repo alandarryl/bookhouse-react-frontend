@@ -32,7 +32,6 @@ function UserProfile() {
                 return(
                     <div className='dashboard-card' >
                         <Profile user={user} DefaultUser={DefaultUser} />
-                        <DashboardBooks/>
                     </div>
                 );
             case 'books':
